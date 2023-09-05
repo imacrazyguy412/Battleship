@@ -18,11 +18,20 @@ public class tester {
 		
 		//System.out.println(Character.compare('b', 'a'));
 		
+		
+
+		System.out.println("what class would you like to test?");
 		String input = scan.nextLine();
-		while(input != "done") {
+		if(input.equals("Boat")){
+			System.out.println("enter boat info");
+		} else if(input.equals("Position")){
+			System.out.println("input a positinon");
+			while(input != "done") {
 			System.out.println(PositionChecker.checkPosition(input));
 			input = scan.nextLine();
+			}
 		}
+		
 		
 		
 	}
