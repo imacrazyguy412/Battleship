@@ -1,4 +1,5 @@
 
+import java.text.ParsePosition;
 import java.util.Scanner;
 public class tester {
 	public static void main(String[] args) {
@@ -25,13 +26,50 @@ public class tester {
 
 
 		//MUY IMPORTANTE REENABLE LATER PLEASE
-		/*
-		System.out.println("what class would you like to test?");
-		String input = scan.nextLine();
+		
+		System.out.println("what class would you like to test?\nBoat, Position");
+		input = scan.nextLine();
 		//Boat testing
 		if(input.equals("Boat")){
 			System.out.println("enter boat info:");
-			
+			//input type
+		System.out.println("input type: Aircraft Carrier, Battleship, Cruiser, Submarine, Destroyer");
+		String type = scan.nextLine();
+		//input position of boat (starting from top left)
+		System.out.println("input a position in letter-number form");
+		Position pos = PositionChecker.checkPosition(scan.nextLine());
+		//input orientation of boat
+		System.out.println("input an orientation: Vertical, Horizontal");
+		String orientation = scan.nextLine();
+		Boat boat = new Boat(type, pos, orientation);
+		
+		System.out.println("name: " + boat.name() + "\nabbreviation: " + boat.abbreviation() + "\ndirection:  " + boat.direction() + "\nposition: " + boat.position());
+
+
+
+		System.out.println("test onboat by entering pos, enter \"done\" to move on");
+		input = scan.nextLine();
+		while(!input.equals("done")){
+			System.out.println(boat.onBoat(PositionChecker.checkPosition(input)));
+			input = scan.nextLine();
+		}
+		
+		System.out.println("test hit by entering pos, enter \"done\" to move on");
+		input = scan.nextLine();
+		while(!input.equals("done")){
+			boat.hit(PositionChecker.checkPosition(input));
+			input = scan.nextLine();
+		}
+		System.out.println("boat health: ");
+		System.out.print(boat);
+		System.out.println("test isHit by entering pos, enter \"done\" to move on");
+		input = scan.nextLine();
+		while(!input.equals("done")){
+			System.out.println(boat.isHit(PositionChecker.checkPosition(input)));
+			input = scan.nextLine();
+		}
+
+
 
 		} 
 		//position testing
@@ -44,7 +82,8 @@ public class tester {
 			input = scan.nextLine();
 			}
 		}
-		 */
+		 
+		/*
 		System.out.println("done to exit");
 		//input type
 		System.out.println("input type: Aircraft Carrier, Battleship, Cruiser, Submarine, Destroyer");
@@ -57,7 +96,15 @@ public class tester {
 		String orientation = scan.nextLine();
 		Boat boat = new Boat(type, pos, orientation);
 
-		
+		System.out.println("now input a position in letter number form to test methods with");
+		Position guess = PositionChecker.checkPosition(scan.nextLine());
+		System.out.println("onboat: ");
+		System.out.println(boat.onBoat(guess));
+		System.out.println("test hit");
+
+		//todo test hit methods after fixing positionchecker
+		System.out.println(boat);
+		 */
 		
 	}
 }

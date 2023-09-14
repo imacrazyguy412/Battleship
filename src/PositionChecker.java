@@ -1,15 +1,14 @@
 
 public class PositionChecker {
 	
-	
 	public static Position checkPosition(String inputPos) {
 		int col = 0;
 		char row = 'A';
 		if(inputPos.length() == 0) {
 			System.out.println("Blank line");
 			return new Position(0, 0);
-		} else if(inputPos.length() !=3) {
-			System.out.println("Wrong format, must have 3 characters");
+		}  else if(inputPos.length() >4) {
+			System.out.println("Wrong format, must have at most 4 characters");
 			return new Position(0, 0);
 		} else {
 			try {
@@ -49,16 +48,3 @@ public class PositionChecker {
 			}
 	}
 }
-
-
-/*String letters = "ABCDEFGHIJ"
-
-if(Integer.parseInt(inputPos.substring(2)) >0 || Integer.parseInt(inputPos.substring(2)) < 11) {
-	
-}
-for(int i = 0; i<10; i++) {
-	if(!inputPos.substring(0, 1).equals(letters.substring(i, i+1))) {
-		
-	}
-}
-*/
