@@ -47,6 +47,10 @@ public class Boat {
 	public String direction() {
 		return orientation;
 	}
+
+	public int size(){
+		return size;
+	}
 	
 	public boolean onBoat(Position guess) {
 		if(orientation.equals("Vertical")) {
