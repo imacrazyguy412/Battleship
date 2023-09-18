@@ -1,3 +1,6 @@
+import exceptions.BoatOutOfBoundsException;
+import exceptions.BoatOverlappingException;
+
 public class Ocean {
     private Boat[] boats;
 
@@ -17,7 +20,7 @@ public class Ocean {
                 for(int i = 0; i<testBoat.size(); i++){
                 if(b.onBoat(new Position(pos.colIndex()+1, pos.rowIndex() + i + 1))){
                     System.out.println("overlapping boats");
-                    throw(new Exception());
+                    throw(new BoatOverlappingException());
                 }
                 }
             }
@@ -25,10 +28,15 @@ public class Ocean {
                 for(int i = 0; i<testBoat.size(); i++){
                     if(b.onBoat(new Position(pos.rowIndex()+1, pos.colIndex() + i + 1))){
                         System.out.println("overlapping boats");
-                        throw(new Exception());
+                        throw(new BoatOverlappingException());
                     }
                 }
             }
+        }
+
+        //check for boats out of bounds
+        if(direction.equals("Vertical") && pos.row() + testBoat.size() >= 10){
+
         }
         boats[boats.length] = testBoat;
         //throw(new Exception());
