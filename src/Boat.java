@@ -81,10 +81,10 @@ public class Boat {
 	
 	public void hit(Position guess) {
 		if(onBoat(guess)) {
-			System.out.println("onboat");
+			//System.out.println("onboat");
 			if(orientation.equals("Vertical")) {
-				System.out.println(guess);
-				System.out.println(pos);
+				//System.out.println(guess);
+				//System.out.println(pos);
 				pieceHealth[guess.colIndex()-pos.colIndex()] = false;
 			}
 			if(orientation.equals("Horizontal")) {
