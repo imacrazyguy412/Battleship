@@ -1,9 +1,6 @@
 
 import java.text.ParsePosition;
 import java.util.Scanner;
-
-import exceptions.BoatOutOfBoundsException;
-import exceptions.BoatOverlappingException;
 public class tester {
 	public static void main(String[] args) {
 		Scanner scan = new Scanner(System.in);
@@ -30,7 +27,7 @@ public class tester {
 
 		//MUY IMPORTANTE REENABLE LATER PLEASE
 		
-		System.out.println("what class would you like to test?\nBoat, Position, Ocean");
+		System.out.println("what class would you like to test?\nBoat, Position");
 		input = scan.nextLine();
 		//Boat testing
 		if(input.equals("Boat")){
@@ -84,26 +81,6 @@ public class tester {
 			System.out.println(PositionChecker.checkPosition(input));
 			input = scan.nextLine();
 			}
-		} 
-		//ocean testiing
-		else if(input.equals("Ocean")){
-			Ocean ocean1 = new Ocean();
-			try{
-				ocean1.placeBoat("Aircraft Carrier", "Vertical", PositionChecker.checkPosition("a-1"));
-			} catch(BoatOutOfBoundsException e){
-				System.out.println("Boat out of bounds");
-			} catch (BoatOverlappingException e){
-				System.out.println("Boat overlapping other boat");
-			}
-			try{
-				ocean1.placeBoat("Battleship", "Vertical", PositionChecker.checkPosition("a-9"));
-			} catch(BoatOutOfBoundsException e){
-				System.out.println("Boat out of bounds");
-			} catch (BoatOverlappingException e){
-				System.out.println("Boat overlapping other boat");
-			}
-
-			System.out.println(ocean1);
 		}
 		 
 		/*
