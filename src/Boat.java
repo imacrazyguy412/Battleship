@@ -54,11 +54,11 @@ public class Boat {
 	
 	public boolean onBoat(Position guess) {
 		if(orientation.equals("Vertical")) {
-			if(guess.rowIndex() == pos.rowIndex() && guess.colIndex() >= pos.colIndex() && guess.colIndex() < pos.colIndex() + size) {
+			if(guess.colIndex() == pos.colIndex() && guess.rowIndex() >= pos.rowIndex() && guess.rowIndex() < pos.rowIndex() + size) {
 				return true;
 			}
 		} else if(orientation.equals("Horizontal")) {
-			if(guess.colIndex() == pos.colIndex() && guess.rowIndex() >= pos.rowIndex() && guess.rowIndex() < pos.rowIndex() + size) {
+			if(guess.rowIndex() == pos.rowIndex() && guess.colIndex() >= pos.colIndex() && guess.colIndex() < pos.colIndex() + size) {
 				return true;
 			}
 		}
@@ -69,7 +69,7 @@ public class Boat {
 		//temp
 		if(onBoat(guess)) {
 			if(orientation.equals("Vertical")) {
-				return !pieceHealth[guess.rowIndex()-pos.rowIndex()];
+				return !pieceHealth[guess.colIndex()-pos.rowIndex()];
 			}
 			if(orientation.equals("Horizontal")) {
 				return !pieceHealth[guess.colIndex()-pos.colIndex()];

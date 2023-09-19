@@ -2,8 +2,8 @@ import java.util.Scanner;
 public class Position {
 	Scanner scan = new Scanner(System.in);
 	
-	private char row;
-	private int col;
+	private int row;
+	private char col;
 	
 	private int rowIndex;
 	private int colIndex;
@@ -12,17 +12,17 @@ public class Position {
 		PositionChecker.checkPosition(scan.nextLine());
 	}
 	
-	public Position(char row, int col) {
-		this.row = Character.toUpperCase(row);
-		this.col = col;
+	public Position(char col, int row) {
+		this.row = row;
+		this.col = Character.toUpperCase(col);
 		
-		rowIndex = Character.compare(row, 'a');
+		rowIndex = Character.compare(col, 'a');
 		colIndex = col-1;
 	}
 	
 	public Position(int row, int col) {
-		this.row = Character.toUpperCase((char)(row + 64));
-		this.col = col;
+		this.row = row;
+		this.col = Character.toUpperCase((char)(col + 64));
 		rowIndex = row-1;
 		colIndex = col-1;
 	}
@@ -35,11 +35,11 @@ public class Position {
 		return colIndex;
 	}
 	
-	public char row() {
+	public int row() {
 		return row;
 	}
 	
-	public int column() {
+	public char column() {
 		return col;
 	}
 	
