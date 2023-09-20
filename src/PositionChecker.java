@@ -27,8 +27,8 @@ public class PositionChecker {
 			}
 			if(Character.isDigit(row)) {
 				System.out.println("Row that is not a letter.");
-				//return new Position(Character.getNumericValue(row), col);
-				return new Position(0, 0);
+				return new Position(Character.getNumericValue(row), col);
+				//return new Position(0, 0);
 			}
 		}
 		//range checker

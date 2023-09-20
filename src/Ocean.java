@@ -20,7 +20,6 @@ public class Ocean {
             if(direction.equals("Horizontal")){
                 for(int i = 0; i<testBoat.size(); i++){
                 if(b.onBoat(new Position(pos.colIndex()+1, pos.rowIndex() + i + 1))){
-                    System.out.println("overlapping boats");
                     throw(new BoatOverlappingException());
                 }
                 }
@@ -28,7 +27,6 @@ public class Ocean {
             if(direction.equals("Vertical")){
                 for(int i = 0; i<testBoat.size(); i++){
                     if(b.onBoat(new Position(pos.rowIndex()+1, pos.colIndex() + i + 1))){
-                        System.out.println("overlapping boats");
                         throw(new BoatOverlappingException());
                     }
                 }
@@ -67,7 +65,7 @@ public class Ocean {
                 return b.abbreviation().toCharArray()[0];
             }
         }
-        return 'F';
+        return '-';
     }
 
     public String boatName(Position pos){
@@ -76,7 +74,7 @@ public class Ocean {
                 return b.name();
             }
         }
-        return "F";
+        return "-";
     }
 
     public boolean sunk(Position pos){

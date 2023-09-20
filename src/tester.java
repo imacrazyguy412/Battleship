@@ -87,30 +87,20 @@ public class tester {
 		//ocean testiing
 		else if(input.equals("Ocean")){
 			Ocean ocean1 = new Ocean();
-			try{
-				ocean1.placeBoat("Aircraft Carrier", "Vertical", PositionChecker.checkPosition("a-1"));
-			} catch(BoatOutOfBoundsException e){
-				System.out.println("Boat out of bounds");
-			} catch (BoatOverlappingException e){
-				System.out.println("Boat overlapping other boat");
-			}
-			try{
-				ocean1.placeBoat("Aircraft Carrier", "Horizontal", PositionChecker.checkPosition("a-1"));
-			} catch(BoatOutOfBoundsException e){
-				System.out.println("Boat out of bounds");
-			} catch (BoatOverlappingException e){
-				System.out.println("Boat overlapping other boat");
-			}
-			try{
-				ocean1.placeBoat("Battleship", "Vertical", PositionChecker.checkPosition("a-9"));
-				} catch(BoatOutOfBoundsException e){
-				System.out.println("Boat out of bounds");
-			} catch (BoatOverlappingException e){
-				System.out.println("Boat overlapping other boat");
-			}
+			boatMe(ocean1, "Aircraft Carrier", "Vertical", "a-4");
+			boatMe(ocean1, "Aircraft Carrier", "Horizontal", "a-1");
+			boatMe(ocean1, "Battleship", "Vertical", "a-9");
+			boatMe(ocean1, "Battleship", "Horizontal", "g-5");
 
-			
 			System.out.println("\n boats on board: \n" + ocean1);
+			for(char r = 'a'; r<='j'; r++){
+				for(int c = 1; c<=10; c++){
+					//System.out.println(PositionChecker.checkPosition(c + "-" + r));
+					//System.out.println(Character.compare(r, 'a'));
+					System.out.print(ocean1.boatInitial(PositionChecker.checkPosition(r + "-" + c )) + " "); 
+				}
+				System.out.println();
+			}
 		}
 		 
 		/*
@@ -136,5 +126,15 @@ public class tester {
 		System.out.println(boat);
 		 */
 		
+	}
+
+	static void boatMe(Ocean ocean, String type, String orientation, String pos){
+		try{
+				ocean.placeBoat(type, orientation, PositionChecker.checkPosition(pos));
+				} catch(BoatOutOfBoundsException e){
+				System.out.println("Boat out of bounds");
+			} catch (BoatOverlappingException e){
+				System.out.println("Boat overlapping other boat");
+			}
 	}
 }
