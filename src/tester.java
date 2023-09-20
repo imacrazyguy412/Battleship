@@ -134,7 +134,7 @@ public class tester {
 				} catch(BoatOutOfBoundsException e){
 				System.out.println("Boat out of bounds");
 			} catch (BoatOverlappingException e){
-				System.out.println("Boat overlapping other boat");
+				System.out.println("overlapping boats");
 			}
 	}
 }

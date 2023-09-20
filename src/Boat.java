@@ -15,7 +15,11 @@ public class Boat {
 	public Boat(String type, Position pos, String orientation) {
 		this.pos = pos;
 		this.type = type;
-		this.orientation = orientation;
+		if(orientation.equals("Vertical")){
+			this.orientation = "Horizontal";
+		} if(orientation.equals("Horizontal")){
+			this.orientation = "Vertical";
+		}
 		
 		//set sizes
 		if(type.equals("Aircraft Carrier")) {
