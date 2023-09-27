@@ -91,6 +91,7 @@ public class tester {
 			boatMe(ocean1, "Aircraft Carrier", "Horizontal", "a-1");
 			boatMe(ocean1, "Battleship", "Vertical", "a-9");
 			boatMe(ocean1, "Battleship", "Horizontal", "g-5");
+			boatMe(ocean1, "Destroyer", "Horizontal", "g-7");
 
 			System.out.println("\n boats on board: \n" + ocean1);
 			for(char r = 'a'; r<='j'; r++){
