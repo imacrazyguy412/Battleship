@@ -94,14 +94,7 @@ public class tester {
 			boatMe(ocean1, "Destroyer", "Horizontal", "g-7");
 
 			System.out.println("\n boats on board: \n" + ocean1);
-			for(char r = 'a'; r<='j'; r++){
-				for(int c = 1; c<=10; c++){
-					//System.out.println(PositionChecker.checkPosition(c + "-" + r));
-					//System.out.println(Character.compare(r, 'a'));
-					System.out.print(ocean1.boatInitial(PositionChecker.checkPosition(r + "-" + c )) + " "); 
-				}
-				System.out.println();
-			}
+			
 		}
 		 
 		/*
@@ -132,10 +125,12 @@ public class tester {
 	static void boatMe(Ocean ocean, String type, String orientation, String pos){
 		try{
 				ocean.placeBoat(type, orientation, PositionChecker.checkPosition(pos));
+				System.out.println("succesfully placed");
 				} catch(BoatOutOfBoundsException e){
 				System.out.println("Boat out of bounds");
 			} catch (BoatOverlappingException e){
 				System.out.println("overlapping boats");
 			}
+
 	}
 }

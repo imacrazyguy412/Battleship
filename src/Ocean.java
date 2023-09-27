@@ -101,6 +101,15 @@ public class Ocean {
             out += "name: " + b.name() + "\nabbreviation: " + b.abbreviation() + "\ndirection:  " + b.direction() + "\nposition: " + b.position();
             out += "\n\n";
         }
+
+        out += "  1 2 3 4 5 6 7 8 9 10\n";
+			for(char r = 'a'; r<='j'; r++){
+				out += Character.toUpperCase(r) + " ";
+				for(int c = 1; c<=10; c++){
+					out += this.boatInitial(PositionChecker.checkPosition(r + "-" + c )) + " "; 
+				}
+				out += "\n";
+			}
         return out;
     }
 }
