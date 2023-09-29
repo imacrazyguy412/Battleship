@@ -52,6 +52,9 @@ public class Ocean {
 
     public boolean hit(Position pos){
         for(Boat b : boats){
+            if(b.onBoat(pos)){
+                System.out.println("PLEASE MAN");
+            }
             if(b.isHit(pos)){
                 return true;
             }

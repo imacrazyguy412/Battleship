@@ -15,11 +15,15 @@ public class Boat {
 	public Boat(String type, Position pos, String orientation) {
 		this.pos = pos;
 		this.type = type;
+		/*
 		if(orientation.equals("Vertical")){
 			this.orientation = "Horizontal";
 		} if(orientation.equals("Horizontal")){
 			this.orientation = "Vertical";
 		}
+		 */
+		this.orientation = orientation;
+		
 		
 		//set sizes
 		if(type.equals("Aircraft Carrier")) {
@@ -57,11 +61,11 @@ public class Boat {
 	}
 	
 	public boolean onBoat(Position guess) {
-		if(orientation.equals("Vertical")) {
+		if(orientation.equals("Horizontal")) {
 			if(guess.rowIndex() == pos.rowIndex() && guess.colIndex() >= pos.colIndex() && guess.colIndex() < pos.colIndex() + size) {
 				return true;
 			}
-		} else if(orientation.equals("Horizontal")) {
+		} else if(orientation.equals("Vertical")) {
 			if(guess.colIndex() == pos.colIndex() && guess.rowIndex() >= pos.rowIndex() && guess.rowIndex() < pos.rowIndex() + size) {
 				return true;
 			}
@@ -72,10 +76,13 @@ public class Boat {
 	public boolean isHit(Position guess) {
 		//temp
 		if(onBoat(guess)) {
+			System.out.println("on za boat");
 			if(orientation.equals("Vertical")) {
+				System.out.println("vert hit");
 				return !pieceHealth[guess.rowIndex()-pos.rowIndex()];
 			}
-			if(orientation.equals("Horizontal")) {
+			 if(orientation.equals("Horizontal")) {
+				System.out.println("horiz hit");
 				return !pieceHealth[guess.colIndex()-pos.colIndex()];
 			}
 		}
