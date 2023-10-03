@@ -47,14 +47,12 @@ public class Ocean {
     public void shootAt(Position pos){
         for(Boat b : boats){
             b.hit(pos);
+
         }
     }
 
     public boolean hit(Position pos){
         for(Boat b : boats){
-            if(b.onBoat(pos)){
-                System.out.println("PLEASE MAN");
-            }
             if(b.isHit(pos)){
                 return true;
             }
@@ -69,6 +67,15 @@ public class Ocean {
             }
         }
         return '-';
+    }
+
+    public Boat getBoat(Position pos){
+        for(Boat b : boats){
+            if(b.onBoat(pos)){
+                return b;
+            }
+        }
+        return null;
     }
 
     public String boatName(Position pos){

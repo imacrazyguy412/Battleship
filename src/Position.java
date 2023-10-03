@@ -15,7 +15,8 @@ public class Position {
 	public Position(char row, int col) {
 		this.row = Character.toUpperCase(row);
 		this.col = col;
-		
+		row = Character.toLowerCase(row);
+
 		rowIndex = Character.compare(row, 'a');
 		colIndex = col-1;
 	}

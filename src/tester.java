@@ -93,17 +93,23 @@ public class tester {
 			boatMe(ocean1, "Battleship", "Horizontal", "g-5");
 			boatMe(ocean1, "Destroyer", "Horizontal", "g-7");
 			
-
-			System.out.println();
-			System.out.println();
 			System.out.println();
 			System.out.println("\n boats on board: \n" + ocean1);
 			System.out.println(ocean1.allSunk());
 			System.out.println(ocean1.boatName(PositionChecker.checkPosition("a-4")));
 			System.out.println(ocean1.hit(PositionChecker.checkPosition("A-4")));
 			ocean1.shootAt(PositionChecker.checkPosition("A-4"));
-			System.out.println("shots fired");
-			System.out.println(ocean1.hit(PositionChecker.checkPosition("A-4"))+ "   fa");
+			System.out.println(ocean1.hit(PositionChecker.checkPosition("A-4")));
+
+			//lazy way to hit all ships
+			ocean1.shootAt(PositionChecker.checkPosition("B-4"));
+			ocean1.shootAt(PositionChecker.checkPosition("C-4"));
+			ocean1.shootAt(PositionChecker.checkPosition("D-4"));
+			ocean1.shootAt(PositionChecker.checkPosition("E-4"));
+
+			ocean1.shootAt(PositionChecker.checkPosition("G-7"));
+			ocean1.shootAt(PositionChecker.checkPosition("G-8"));
+			System.out.println(ocean1.allSunk());
 			
 		}
 		 

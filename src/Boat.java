@@ -76,29 +76,26 @@ public class Boat {
 	public boolean isHit(Position guess) {
 		//temp
 		if(onBoat(guess)) {
-			System.out.println("on za boat");
 			if(orientation.equals("Vertical")) {
-				System.out.println("vert hit");
 				return !pieceHealth[guess.rowIndex()-pos.rowIndex()];
 			}
 			 if(orientation.equals("Horizontal")) {
-				System.out.println("horiz hit");
 				return !pieceHealth[guess.colIndex()-pos.colIndex()];
 			}
 		}
-		System.out.println("pos not on boat");
+		//System.out.println("pos not on boat");
 		return false;
 	}
 	
 	public void hit(Position guess) {
 		if(onBoat(guess)) {
 			//System.out.println("onboat");
-			if(orientation.equals("Vertical")) {
+			if(orientation.equals("Horizontal")) {
 				//System.out.println(guess);
 				//System.out.println(pos);
 				pieceHealth[guess.colIndex()-pos.colIndex()] = false;
 			}
-			if(orientation.equals("Horizontal")) {
+			if(orientation.equals("Vertical")) {
 				pieceHealth[guess.rowIndex()-pos.rowIndex()] = false;
 			}
 		}
