@@ -30,7 +30,7 @@ public class tester {
 
 		//MUY IMPORTANTE REENABLE LATER PLEASE
 		
-		System.out.println("what class would you like to test?\nBoat, Position, Ocean");		input = scan.nextLine();
+		System.out.println("what class would you like to test?\nBoat, Position, Ocean, placeAllBoats");		input = scan.nextLine();
 		//Boat testing
 		if(input.equals("Boat")){
 			System.out.println("enter boat info:");
@@ -111,7 +111,14 @@ public class tester {
 			ocean1.shootAt(PositionChecker.checkPosition("G-8"));
 			System.out.println(ocean1.allSunk());
 			
+		} else if(input.equals("BattleshipGrid")){
+			
+		} else if(input.equals("placeAllBoats")){
+			Ocean ocean1 = new Ocean();
+			ocean1.placeAllBoats();
+			System.out.println(ocean1);
 		}
+		//call shotat with every shot
 		 
 		/*
 		System.out.println("done to exit");

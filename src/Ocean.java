@@ -17,28 +17,37 @@ public class Ocean {
         //check for overlapping boats
         for(Boat b : boats){
             //vertical check
-            if(direction.equals("Horizontal")){
+            if(direction.equals("Vertical")){
                 for(int i = 0; i<testBoat.size(); i++){
                 if(b.onBoat(new Position(pos.colIndex()+1, pos.rowIndex() + i + 1))){
+                    System.out.println(new Position(pos.colIndex()+1, pos.rowIndex() + i + 1));
                     throw(new BoatOverlappingException());
                 }
+                if(b.onBoat(new Position(pos.rowIndex()+1, pos.colIndex() + i + 1))){
+                    System.out.println(new Position(pos.colIndex()+1, pos.rowIndex() + i + 1));
+                        throw(new BoatOverlappingException());
+                    }
                 }
             }
-            if(direction.equals("Vertical")){
+            if(direction.equals("Horizontal")){
                 for(int i = 0; i<testBoat.size(); i++){
                     if(b.onBoat(new Position(pos.rowIndex()+1, pos.colIndex() + i + 1))){
                         throw(new BoatOverlappingException());
                     }
+                    if(b.onBoat(new Position(pos.colIndex()+1, pos.rowIndex() + i + 1))){
+                    throw(new BoatOverlappingException());
+                }
                 }
             }
         }
 
         //check for boats out of bounds
-        if(direction.equals("Horizontal") && pos.rowIndex() + testBoat.size() >= 10){
+        if(direction.equals("Vertical") && pos.rowIndex() + testBoat.size() >= 10){
             throw(new BoatOutOfBoundsException());
-        } else if(direction.equals("Vertical") && pos.colIndex() + testBoat.size() >= 10){
+        } else if(direction.equals("Horizontal") && pos.colIndex() + testBoat.size() >= 10){
             throw(new BoatOutOfBoundsException());
         }
+        System.out.println("We Placed it");
         boats.add(testBoat);
         //throw(new Exception());
     }
@@ -49,6 +58,7 @@ public class Ocean {
             b.hit(pos);
 
         }
+        
     }
 
     public boolean hit(Position pos){
@@ -103,6 +113,31 @@ public class Ocean {
             }
         }
         return true;
+    }
+
+    public void placeAllBoats(){
+        boolean didItPlace = false;
+        String orientation;
+        orientation = (Math.random()>.5) ? "Vertical" : "Horizontal";
+        String[] boats = {"Aircraft Carrier", "Battleship", "Cruiser", "Submarine", "Destroyer"};
+        for(int i = 0; i <5; i++){
+            didItPlace = false;
+            while(!didItPlace){
+                orientation = (Math.random()>.5) ? "Vertical" : "Horizontal";
+            try{
+                placeBoat(boats[i], orientation, new Position((int)(Math.random()*10 +1), (int)(Math.random()*10 +1)));
+                didItPlace = true;
+            } catch(BoatOutOfBoundsException b) {
+                System.out.println("we outa bounds");
+            } catch(BoatOverlappingException o) {
+                System.out.println("we overlappin");
+            }
+            
+            }
+
+        }
+        
+
     }
 
     public String toString(){
