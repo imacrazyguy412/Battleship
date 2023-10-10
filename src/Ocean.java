@@ -18,25 +18,30 @@ public class Ocean {
         for(Boat b : boats){
             //vertical check
             if(direction.equals("Vertical")){
-                for(int i = 0; i<testBoat.size(); i++){
-                if(b.onBoat(new Position(pos.colIndex()+1, pos.rowIndex() + i + 1))){
-                    System.out.println(new Position(pos.colIndex()+1, pos.rowIndex() + i + 1));
+                for(int i = 0; i<testBoat.size()+1; i++){
+                if(b.onBoat(new Position(pos.rowIndex()+1 + i, pos.colIndex()+ 1))){
+                    System.out.println(new Position(pos.rowIndex()+1 + i, pos.colIndex() + 1));
                     throw(new BoatOverlappingException());
                 }
-                if(b.onBoat(new Position(pos.rowIndex()+1, pos.colIndex() + i + 1))){
+                /*if(b.onBoat(new Position(pos.rowIndex()+1, pos.colIndex() + i + 1))){
                     System.out.println(new Position(pos.colIndex()+1, pos.rowIndex() + i + 1));
                         throw(new BoatOverlappingException());
                     }
-                }
+               
+            */
             }
+            }    
             if(direction.equals("Horizontal")){
                 for(int i = 0; i<testBoat.size(); i++){
                     if(b.onBoat(new Position(pos.rowIndex()+1, pos.colIndex() + i + 1))){
+                        System.out.println(new Position(pos.colIndex()+1, pos.rowIndex() + i + 1));
                         throw(new BoatOverlappingException());
                     }
-                    if(b.onBoat(new Position(pos.colIndex()+1, pos.rowIndex() + i + 1))){
-                    throw(new BoatOverlappingException());
+                    /*if(b.onBoat(new Position(pos.colIndex()+1, pos.rowIndex() + i + 1))){
+                        System.out.println(new Position(pos.colIndex()+1, pos.rowIndex() + i + 1));
+                        throw(new BoatOverlappingException());
                 }
+                */
                 }
             }
         }
@@ -47,6 +52,8 @@ public class Ocean {
         } else if(direction.equals("Horizontal") && pos.colIndex() + testBoat.size() >= 10){
             throw(new BoatOutOfBoundsException());
         }
+
+
         System.out.println("We Placed it");
         boats.add(testBoat);
         //throw(new Exception());
