@@ -48,7 +48,7 @@ public class Position {
 		if(row == '@') {
 			return "Invalid position" + "\nIndexes: " + rowIndex + ", " + colIndex; 
 		}
-		
-		return row + "-" + col + "\nIndexes: " + rowIndex + ", " + colIndex;
+		return row + "-" + col;
+		//return row + "-" + col + "\nIndexes: " + rowIndex + ", " + colIndex;
 	}
 }

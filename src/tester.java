@@ -30,7 +30,7 @@ public class tester {
 
 		//MUY IMPORTANTE REENABLE LATER PLEASE
 		
-		System.out.println("what class would you like to test?\nBoat, Position, Ocean, placeAllBoats");		input = scan.nextLine();
+		System.out.println("what class would you like to test?\nBoat, Position, Ocean, placeAllBoats, Game");		input = scan.nextLine();
 		//Boat testing
 		if(input.equals("Boat")){
 			System.out.println("enter boat info:");
@@ -117,6 +117,9 @@ public class tester {
 			Ocean ocean1 = new Ocean();
 			ocean1.placeAllBoats();
 			System.out.println(ocean1);
+		} else if(input.equals("Game")){
+			Player player = new Player();
+			Game game = new Game(player);
 		}
 		//call shotat with every shot
 		 

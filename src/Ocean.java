@@ -149,10 +149,12 @@ public class Ocean {
 
     public String toString(){
         String out = "";
+        /*
         for(Boat b : boats){
             out += "name: " + b.name() + "\nabbreviation: " + b.abbreviation() + "\ndirection:  " + b.direction() + "\nposition: " + b.position();
             out += "\n\n";
         }
+        */
 
         out += "  1 2 3 4 5 6 7 8 9 10\n";
 			for(char r = 'a'; r<='j'; r++){

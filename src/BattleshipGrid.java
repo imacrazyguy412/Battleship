@@ -34,7 +34,7 @@ public class BattleshipGrid {
                 boatsI[pos.rowIndex()][pos.colIndex()] = ocean.boatInitial(pos);
                 
             } else {
-                boatsI[pos.rowIndex()][pos.colIndex()] = 'n';
+                boatsI[pos.rowIndex()][pos.colIndex()] = '#';
             }
     }
 
@@ -64,4 +64,20 @@ public class BattleshipGrid {
     public char boatInitial(Position pos){
         return ocean.boatInitial(pos);
     }
+
+    public String toString(){
+        String out = "";
+
+        out += "  1 2 3 4 5 6 7 8 9 10\n";
+        for(int r = 0; r< 10; r++){
+            out += (char)('A' + r) + " ";
+            for(int c = 0; c<10; c++){
+                out += boatsI[r][c] + " "; 
+            }
+            out += "\n";
+        }
+        return out;
+    }
+
+
 }
